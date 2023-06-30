@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Job {
 
+    public static boolean getEmployer;
     private int id;
     private static int nextId = 1;
 
