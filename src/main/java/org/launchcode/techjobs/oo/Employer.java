@@ -41,15 +41,9 @@ public class Employer {
 
     // Getters and Setters:
 
-    public int getId() {
+    public int getId() {return id;}
 
-        return id;
-    }
-
-    public String getValue() {
-
-        return value;
-    }
+    public String getValue() {return value;}
 
     public void setValue(String value) {
 
