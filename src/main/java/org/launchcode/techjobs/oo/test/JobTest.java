@@ -3,7 +3,7 @@ package org.launchcode.techjobs.oo.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.launchcode.techjobs.oo.Job;
+import org.launchcode.techjobs.oo.*;
 
 import java.util.TimeZone;
 
@@ -21,7 +21,31 @@ public class JobTest {
         assertNotEquals(jobOne.getId(), jobTwo.getId());
     }
 
+    @Test
+    public void testJobConstructorSetsAllFields(){
+        Job jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(jobThree.getName() instanceof String);
+        assertTrue(jobThree.getEmployer() instanceof Employer);
+        assertTrue(jobThree.getLocation() instanceof Location);
+        assertTrue(jobThree.getPositionType() instanceof PositionType);
+        assertTrue(jobThree.getCoreCompetency() instanceof CoreCompetency);
 
+        assertEquals("Product tester", jobThree.getName());
+        assertEquals("ACME", jobThree.getEmployer().getValue());
+        assertEquals("Desert", jobThree.getLocation().getValue());
+        assertEquals("Quality control", jobThree.getPositionType().getValue());
+        assertEquals("Persistence", jobThree.getCoreCompetency().getValue());
+    }
+
+    @Test
+    public void testJobsForEquality(){
+        Job jobFour = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job jobFive = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(jobFour.equals(jobFive));
+    }
 
 
 }
