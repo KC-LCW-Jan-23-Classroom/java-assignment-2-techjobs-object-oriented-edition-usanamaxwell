@@ -32,10 +32,36 @@ public class Job {
         coreCompetency = aCoreCompetency;
     }
 
+    public String toString(){
+        String jobResult = "";
+        if(name.isEmpty()){
+            name = "Data not available";
+        }
+        if(employer.getValue().equals("")){
+            employer.setValue("Data not available");
+        }
+        if(location.getValue().equals("")){
+            location.setValue("Data not available");
+        }
+        if(positionType.getValue().equals("")){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue().equals("")){
+            coreCompetency.setValue("Data not available");
+        }
+        jobResult = "\n" + "ID: " + id +"\n" +
+                "Name: " + name +"\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
+        return jobResult;
+    }
+
+
     public Job(String name){
         this.name = name;
     }
-
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
